@@ -12,20 +12,20 @@ function pairwise(arr, arg) {
   let indexArr = [];
   let result = 0;
   let otherIndex;
-  let validPair;
+  let pair;
 
   for (let i = 0; i < arr.length; i++){
-    validPair = arg - arr[i];
-    if((arr.indexOf(validPair)!= -1)&&(i != (arr.indexOf(validPair)))){ //if arg minus ith element exists and the index is not being doubled/used twice
-      if (indexArr.includes(i)||(indexArr.includes((arr.indexOf(validPair))))){
-          if (arr.indexOf(validPair) != arr.lastIndexOf(validPair) && (i != (arr.lastIndexOf(validPair)) && (!indexArr.includes(arr.lastIndexOf(validPair))))){
-              otherIndex = arr.lastIndexOf(validPair);
+    pair = arg - arr[i];
+    if((arr.indexOf(pair)!= -1)&&(i != (arr.indexOf(pair)))){ //if arg minus ith element exists and the index is not being doubled/used twice
+      if (indexArr.includes(i)||(indexArr.includes((arr.indexOf(pair))))){
+          if (arr.indexOf(pair) != arr.lastIndexOf(pair) && (i != (arr.lastIndexOf(pair)) && (!indexArr.includes(arr.lastIndexOf(pair))))){
+              otherIndex = arr.lastIndexOf(pair);
           }else{
             break;
           }
 
       }else{
-              otherIndex = (arr.indexOf(validPair));
+              otherIndex = (arr.indexOf(pair));
       }
 
         indexArr.push(i,otherIndex);
