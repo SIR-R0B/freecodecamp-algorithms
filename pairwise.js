@@ -12,28 +12,27 @@ function pairwise(arr, arg) {
   let indexArr = [];
   let result = 0;
   let otherIndex;
+  let validPair;
 
   for (let i = 0; i < arr.length; i++){
-    if((arr.indexOf(arg - arr[i])!= -1)&&(i != (arr.indexOf(arg - arr[i])))){ //if arg minus ith element exists and the index is not being doubled/used twice
-      if (indexArr.includes(i)||(indexArr.includes((arr.indexOf(arg - arr[i]))))){
-          if (arr.indexOf(arg-arr[i]) != arr.lastIndexOf(arg-arr[i]) && (i != (arr.lastIndexOf(arg - arr[i])) && (!indexArr.includes(arr.lastIndexOf(arg-arr[i]))))){
-              otherIndex = arr.lastIndexOf(arg - arr[i]);
+    validPair = arg - arr[i];
+    if((arr.indexOf(validPair)!= -1)&&(i != (arr.indexOf(validPair)))){ //if arg minus ith element exists and the index is not being doubled/used twice
+      if (indexArr.includes(i)||(indexArr.includes((arr.indexOf(validPair))))){
+          if (arr.indexOf(validPair) != arr.lastIndexOf(validPair) && (i != (arr.lastIndexOf(validPair)) && (!indexArr.includes(arr.lastIndexOf(validPair))))){
+              otherIndex = arr.lastIndexOf(validPair);
           }else{
             break;
           }
 
       }else{
-              otherIndex = (arr.indexOf(arg-arr[i]));
+              otherIndex = (arr.indexOf(validPair));
       }
 
         indexArr.push(i,otherIndex);
-        console.log('IndexArray: '+indexArr);
         result += (i + otherIndex);
-        console.log('Result: '+result)
     }  
 
   }
-console.log('final indexArr: '+indexArr);
   return result;
 }
 
