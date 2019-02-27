@@ -12,21 +12,16 @@ arr[index2] = temp;
 
 function generate(n){
 let regex = /([a-z])\1+/;
-if ((n === 1) && !(regex.test(arr.join('')))) {
-result++;
-}
+if ((n === 1) && !(regex.test(arr.join('')))) result++;
 else {
 for (let i = 0; i < n; i++){
 generate(n-1);
-swap((n % 2  ? i : 0), n-1);
+swap((n % 2  ? 0 : i), n-1);
 }
-
 }
-
 }
 
 generate(arr.length);
-console.log(result);
   return result;
 }
 
